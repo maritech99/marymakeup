@@ -83,36 +83,38 @@
 
         .beauty-card:hover { transform: translateY(-5px); }
 
-        .img-placeholder {
+        .img-container {
             width: 100%;
-            height: 200px;
-            background: #eee;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #999;
-            font-style: italic;
+            height: 220px;
+            overflow: hidden;
+        }
+
+        .img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .card-body { padding: 20px; }
         .card-body h3 { font-family: 'Playfair Display', serif; margin-bottom: 10px; color: var(--gold); }
         
         .tips { list-style: none; }
-        .tips li { margin-bottom: 10px; font-size: 0.9rem; position: relative; padding-left: 20px; }
-        .tips li::before { content: "✦"; position: absolute; left: 0; color: var(--rose); }
+        .tips li { margin-bottom: 10px; font-size: 0.85rem; position: relative; padding-left: 20px; border-bottom: 1px f9f9f9 solid; padding-bottom: 5px; }
+        .tips li::before { content: "✦"; position: absolute; left: 0; color: var(--gold); }
 
-        .clima-badge {
-            font-size: 0.7rem;
-            background: #f0f0f0;
+        .clima-tag {
+            font-size: 0.65rem;
+            background: var(--rose);
             padding: 2px 8px;
-            border-radius: 10px;
-            margin-bottom: 5px;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-bottom: 8px;
             display: inline-block;
         }
 
         footer { background: var(--dark); color: var(--white); text-align: center; padding: 40px; margin-top: 50px; }
 
-        @media (max-width: 768px) { h1 { font-size: 2rem; } }
+        @media (max-width: 768px) { h1 { font-size: 2.5rem; } }
     </style>
 </head>
 <body>
@@ -123,10 +125,10 @@
     </header>
 
     <nav class="main-nav">
-        <a href="#rutinas">Rutinas</a>
+        <a href="#rutinas">Rutinas y Climas</a>
         <a href="#activos">Ingredientes</a>
-        <a href="#guias">Guías</a>
-        <a href="#especiales">Especiales</a>
+        <a href="#guias">Guías de Compra</a>
+        <a href="#especiales">Cuidado Especial</a>
         <a href="#emprender">Emprender</a>
     </nav>
 
@@ -134,38 +136,45 @@
 
         <h2 id="rutinas" class="section-header">Rutinas y Climas</h2>
         <div class="beauty-grid">
+            
             <div class="beauty-card">
-                <div class="img-placeholder">Imagen: Rutina Diaria/Nocturna</div>
+                <div class="img-container">
+                    <img src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?q=80&w=800" alt="Rutina Diaria">
+                </div>
                 <div class="card-body">
                     <h3>Diaria & Nocturna</h3>
                     <ul class="tips">
-                        <li><strong>Día:</strong> En climas urbanos, usá siempre antioxidantes para bloquear la polución.</li>
-                        <li><strong>Noche:</strong> Priorizá la doble limpieza si usás maquillaje o vivís en zonas húmedas.</li>
-                        <li><strong>Clima Seco:</strong> Aplicá tu hidratante con la piel apenas húmeda para retener agua.</li>
+                        <li><strong>Día:</strong> En climas urbanos, usá siempre Vitamina C antes del protector solar para bloquear la polución.</li>
+                        <li><strong>Noche:</strong> Si vivís en zonas húmedas, la doble limpieza es clave para eliminar el sudor y restos de polución.</li>
+                        <li><strong>Limpieza:</strong> Usá agua tibia; el agua muy caliente en climas fríos rompe los capilares del rostro.</li>
                     </ul>
                 </div>
             </div>
 
             <div class="beauty-card">
-                <div class="img-placeholder">Imagen: Verano/Invierno</div>
+                <div class="img-container">
+                    <img src="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?q=80&w=800" alt="Verano Invierno">
+                </div>
                 <div class="card-body">
-                    <h3>Estaciones del Año</h3>
+                    <h3>Verano vs. Invierno</h3>
                     <ul class="tips">
-                        <li><strong>Verano:</strong> Usá texturas "gel-cream" para evitar la sensación pegajosa por el calor.</li>
-                        <li><strong>Invierno:</strong> Reforzá la barrera con ceramidas para combatir el daño del viento frío.</li>
-                        <li><strong>Transición:</strong> En primavera/otoño, exfoliá suavemente para renovar la piel post-clima extremo.</li>
+                        <li><strong>Verano:</strong> Cambiá tu crema pesada por texturas tipo "sorbete" o gel que no obstruyan los poros con el calor.</li>
+                        <li><strong>Invierno:</strong> Reforzá la barrera cutánea con ceramidas para evitar la descamación por el viento helado.</li>
+                        <li><strong>Transición:</strong> En primavera, realizá una exfoliación química suave para eliminar células muertas del invierno.</li>
                     </ul>
                 </div>
             </div>
 
             <div class="beauty-card">
-                <div class="img-placeholder">Imagen: Piel Grasa/Seca/Sensible</div>
+                <div class="img-container">
+                    <img src="https://images.unsplash.com/photo-1596462502278-27bfdc4033c8?q=80&w=800" alt="Tipos de Piel">
+                </div>
                 <div class="card-body">
                     <h3>Tipos de Piel</h3>
                     <ul class="tips">
-                        <li><strong>Piel Grasa:</strong> No saltees la hidratación; la piel deshidratada produce más grasa para compensar.</li>
-                        <li><strong>Piel Seca:</strong> Evitá el agua muy caliente al lavarte, ya que barre los lípidos naturales.</li>
-                        <li><strong>Piel Sensible:</strong> Buscá productos con Centella Asiática para calmar rojeces por cambios de clima.</li>
+                        <li><strong>Piel Grasa:</strong> El clima húmedo aumenta el sebo; usá tónicos con ácido salicílico solo en la zona T.</li>
+                        <li><strong>Piel Seca:</strong> En climas áridos, aplicá el ácido hialurónico con la piel mojada para evitar que te deshidrate.</li>
+                        <li><strong>Piel Sensible:</strong> Evitá fragancias en zonas con cambios bruscos de temperatura para prevenir rosácea.</li>
                     </ul>
                 </div>
             </div>
@@ -173,24 +182,31 @@
 
         <h2 id="activos" class="section-header">Ingredientes Estrella</h2>
         <div class="beauty-grid">
+            
             <div class="beauty-card">
+                <div class="img-container">
+                    <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?q=80&w=800" alt="Ingredientes">
+                </div>
                 <div class="card-body">
-                    <h3>Vitamina C, Retinol y Niacinamida</h3>
+                    <h3>Vitamina C, Retinol & Niacinamida</h3>
                     <ul class="tips">
-                        <li><strong>Vitamina C:</strong> Guardala en la heladera si vivís en climas muy cálidos para que no se oxide rápido.</li>
-                        <li><strong>Retinol:</strong> Empezá de a poco (2 veces por semana) y solo de noche para evitar irritación extrema.</li>
-                        <li><strong>Niacinamida:</strong> Ideal para climas húmedos ya que ayuda a regular el tamaño visual de los poros.</li>
+                        <li><strong>Vitamina C:</strong> En climas cálidos, guardala en un lugar oscuro (o heladera) para que no pierda su efecto.</li>
+                        <li><strong>Retinol:</strong> Ideal para usar en invierno cuando la radiación solar es menor y el riesgo de manchas baja.</li>
+                        <li><strong>Niacinamida:</strong> Es el todoterreno: calma la piel tras la exposición al sol y reduce poros en climas húmedos.</li>
                     </ul>
                 </div>
             </div>
 
             <div class="beauty-card">
+                <div class="img-container">
+                    <img src="https://images.unsplash.com/photo-1570172619382-2fa2f337a82b?q=80&w=800" alt="Tratamientos">
+                </div>
                 <div class="card-body">
-                    <h3>Ácidos y Manchas (Acné/Antiarrugas)</h3>
+                    <h3>Ácidos y Manchas</h3>
                     <ul class="tips">
-                        <li><strong>Manchas:</strong> El protector solar es el mejor despigmentante; sin él, ningún suero funciona.</li>
-                        <li><strong>Acné:</strong> Usá parches de hidrocoloide en climas húmedos para evitar infecciones por sudor.</li>
-                        <li><strong>Antiarrugas:</strong> No olvides el cuello y escote, son las zonas que más sufren la exposición solar.</li>
+                        <li><strong>Acné:</strong> En verano, evitá ácidos fuertes; optá por parches de hidrocoloide para no generar marcas con el sol.</li>
+                        <li><strong>Manchas:</strong> Usá ácido tranexámico combinado con SPF 50+ si vivís en zonas de alta radiación UV.</li>
+                        <li><strong>Antiarrugas:</strong> No olvides hidratar cuello y escote, son zonas muy finas que sufren mucho la sequedad ambiental.</li>
                     </ul>
                 </div>
             </div>
@@ -198,25 +214,31 @@
 
         <h2 id="guias" class="section-header">Guías de Compra y Uso</h2>
         <div class="beauty-grid">
+            
             <div class="beauty-card">
-                <div class="img-placeholder">Imagen: Guía de Productos</div>
+                <div class="img-container">
+                    <img src="https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?q=80&w=800" alt="Guia productos">
+                </div>
                 <div class="card-body">
                     <h3>Sérums, Tónicos y Limpieza</h3>
                     <ul class="tips">
-                        <li><strong>Tónicos:</strong> No son esenciales, pero en climas cálidos ayudan a refrescar y equilibrar el pH.</li>
-                        <li><strong>Limpieza:</strong> Si tu agua es "dura" (muchos minerales), terminá el enjuague con agua termal.</li>
-                        <li><strong>Aceites:</strong> Usalos solo de noche y como último paso si tu piel es muy madura o seca.</li>
+                        <li><strong>Sérums:</strong> Aplicá primero los de base acuosa y al final los oleosos para que penetren correctamente.</li>
+                        <li><strong>Limpieza:</strong> Si vivís en una ciudad con "agua dura", terminá el enjuague con agua mineral para evitar irritación.</li>
+                        <li><strong>Exfoliantes:</strong> No los uses más de 2 veces por semana; el exceso debilita la barrera en climas ventosos.</li>
                     </ul>
                 </div>
             </div>
 
             <div class="beauty-card">
+                <div class="img-container">
+                    <img src="https://images.unsplash.com/photo-1612817288484-6f916006741a?q=80&w=800" alt="Economia">
+                </div>
                 <div class="card-body">
                     <h3>Económico vs. Premium</h3>
                     <ul class="tips">
-                        <li><strong>Económico:</strong> Invertí menos en limpiadores (están poco tiempo en la piel) y más en sueros.</li>
-                        <li><strong>Natural:</strong> Chequeá siempre la fecha de vencimiento; lo natural suele durar menos tiempo.</li>
-                        <li><strong>Hábitos:</strong> Cambiá la funda de tu almohada cada 3 días para evitar brotes de acné.</li>
+                        <li><strong>Económico:</strong> Ahorrá en limpiadores; se van por el desagüe. Invertí en sueros que se quedan en tu piel.</li>
+                        <li><strong>Natural:</strong> Las mascarillas de miel son excelentes post-sol para calmar quemaduras leves de forma segura.</li>
+                        <li><strong>Hábitos:</strong> Dormir 8 horas en una habitación ventilada previene la piel opaca y las ojeras marcadas.</li>
                     </ul>
                 </div>
             </div>
@@ -224,37 +246,45 @@
 
         <h2 id="especiales" class="section-header">Cuidado Corporal y Técnicas</h2>
         <div class="beauty-grid">
+            
             <div class="beauty-card">
+                <div class="img-container">
+                    <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=800" alt="Masajes">
+                </div>
                 <div class="card-body">
-                    <h3>Celulitis y Masajes</h3>
+                    <h3>Masajes y Celulitis</h3>
                     <ul class="tips">
-                        <li><strong>Reductores:</strong> Realizá masajes ascendentes siempre hacia los ganglios para drenar líquidos.</li>
-                        <li><strong>Pies y Manos:</strong> En invierno, aplicá mucha crema y usá guantes/medias de algodón una noche entera.</li>
-                        <li><strong>Cepillado en seco:</strong> Hacelo antes de la ducha para activar la circulación en climas fríos.</li>
+                        <li><strong>Reductores:</strong> Hacé movimientos circulares ascendentes hacia los ganglios linfáticos para eliminar toxinas.</li>
+                        <li><strong>Cepillado en seco:</strong> Ideal para activar la circulación antes de bañarse en mañanas frías de invierno.</li>
+                        <li><strong>Manos y Pies:</strong> Usá cremas con Urea al 10% en verano para evitar talones agrietados por las sandalias.</li>
                     </ul>
                 </div>
             </div>
 
             <div class="beauty-card">
+                <div class="img-container">
+                    <img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?q=80&w=800" alt="Etapas de vida">
+                </div>
                 <div class="card-body">
                     <h3>Etapas de la Vida</h3>
                     <ul class="tips">
-                        <li><strong>Embarazo:</strong> Consultá siempre antes de usar ácidos; priorizá la hidratación para evitar estrías.</li>
-                        <li><strong>+30/+40:</strong> Empezá a incorporar péptidos y colágeno para ayudar a la elasticidad.</li>
-                        <li><strong>Adolescentes:</strong> Menos es más. Limpieza, hidratación liviana y mucho protector solar.</li>
+                        <li><strong>Embarazo:</strong> Evitá el retinol y derivados de ácido salicílico. Priorizá aceite de rosa mosqueta para estrías.</li>
+                        <li><strong>+30/40:</strong> Empezá con péptidos y colágeno para combatir la pérdida de elasticidad post-verano.</li>
+                        <li><strong>Adolescentes:</strong> Limpieza y SPF son suficientes. No satures la piel joven con activos antiedad innecesarios.</li>
                     </ul>
                 </div>
             </div>
         </div>
 
-        <h2 id="emprender" class="section-header">Beauty Business & IA</h2>
+        <h2 id="emprender" class="section-header">Beauty Business</h2>
         <div class="beauty-grid">
-            <div class="beauty-card" style="border: 1px solid var(--gold);">
+            <div class="beauty-card" style="grid-column: 1 / -1; border: 2px solid var(--rose);">
                 <div class="card-body">
-                    <h3>Emprendimiento Beauty</h3>
-                    <ul class="tips">
-                       
-                        <li><strong>IA de Belleza:</strong> Mi próximo proyecto permitirá diagnosticar tu rutina ideal analizando tu ciudad.</li>
+                    <h3>Estrategias para tu Emprendimiento</h3>
+                    <ul class="tips" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px;">
+                        <li><strong>Contenido:</strong> Grabá videos de "Rutina según el clima de hoy" para generar conexión real con tus clientas.</li>
+                        <li><strong>Venta:</strong> No vendas solo la crema, vendé la "solución para piel seca en invierno". El beneficio vende más que el producto.</li>
+                        <li><strong>IA de Belleza:</strong> Próximamente: Integraré una herramienta que lea el clima de tu GPS y te diga qué ponerte.</li>
                     </ul>
                 </div>
             </div>
@@ -265,7 +295,7 @@
     <footer>
         <p><strong>M a r y | Consejos de Belleza</strong></p>
         <p>Inspiración, Ciencia y Cuidado Personal</p>
-        <p style="font-size: 0.7rem; margin-top: 20px;">Proyecto GitHub - Ideas y Contenido 2026</p>
+        <p style="font-size: 0.7rem; margin-top: 20px;">© 2026 Mary Beauty Project - GitHub Pages</p>
     </footer>
 
 </body>
