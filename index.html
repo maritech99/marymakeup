@@ -21,29 +21,25 @@
             background-color: var(--black); 
             color: var(--white); 
             font-family: 'Inter', sans-serif;
-            line-height: 1.6;
             overflow-x: hidden;
         }
 
-        /* --- Header Estilo App --- */
+        /* --- Header Estilo Concierge --- */
         header {
-            height: 100vh;
+            height: 70vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
             background: radial-gradient(circle at center, #1a1a1a 0%, #050505 100%);
-            padding: 20px;
         }
 
         h1 {
             font-family: 'Syne', sans-serif;
-            font-size: clamp(3.5rem, 15vw, 8rem);
-            font-weight: 800;
+            font-size: clamp(3rem, 12vw, 7rem);
             line-height: 0.8;
-            letter-spacing: -4px;
-            color: var(--white);
+            letter-spacing: -3px;
             text-transform: uppercase;
         }
 
@@ -51,42 +47,41 @@
 
         .hero-subtitle {
             font-family: 'Tenor Sans', serif;
-            letter-spacing: 12px;
-            margin-top: 30px;
+            letter-spacing: 10px;
+            margin-top: 20px;
             color: var(--rose);
-            font-size: 0.7rem;
+            font-size: 0.6rem;
             text-transform: uppercase;
         }
 
-        /* --- Contenedor Principal --- */
-        .container { max-width: 600px; margin: auto; padding: 80px 20px; }
+        .container { max-width: 500px; margin: auto; padding: 20px; }
 
         .section-title {
             font-family: 'Syne', sans-serif;
-            font-size: 1.5rem;
+            font-size: 1rem;
             text-align: center;
-            margin-bottom: 40px;
+            margin: 40px 0 25px;
             color: var(--gold);
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 4px;
         }
 
         /* --- Consola de Clima --- */
         .weather-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
+            gap: 12px;
             margin-bottom: 30px;
         }
 
         .weather-btn {
             background: var(--gray);
-            border: 1px solid rgba(212, 175, 55, 0.2);
+            border: 1px solid rgba(212, 175, 55, 0.1);
             color: var(--white);
-            padding: 15px 5px;
+            padding: 20px 5px;
             border-radius: 15px;
             font-family: 'Syne', sans-serif;
-            font-size: 0.65rem;
+            font-size: 0.6rem;
             cursor: pointer;
             transition: var(--transition);
             text-transform: uppercase;
@@ -95,214 +90,72 @@
         .weather-btn.active {
             background: var(--gold);
             color: var(--black);
-            border-color: var(--gold);
             transform: scale(0.95);
+            border-color: var(--gold);
         }
 
         #weather-display {
-            background: var(--gray);
-            border-radius: 30px;
+            background: linear-gradient(145deg, #111, #080808);
+            border-radius: 25px;
             padding: 30px;
-            min-height: 250px;
-            border: 1px solid rgba(244, 208, 220, 0.1);
-            margin-bottom: 80px;
-            animation: fadeIn 0.5s ease;
+            min-height: 180px;
+            border: 1px solid rgba(255,255,255,0.03);
+            margin-bottom: 50px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
         }
 
-        /* --- Manifiesto de 20 Ideas (Botones) --- */
-        .manifesto-grid {
+        /* --- Botones de Información (Los que no son de juguete) --- */
+        .info-stack {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 20px;
-            margin-bottom: 80px;
-        }
-
-        .manifesto-card {
-            background: linear-gradient(145deg, #111, #050505);
-            border: 1px solid rgba(255,255,255,0.05);
-            padding: 40px;
-            border-radius: 40px;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .manifesto-card:hover { border-color: var(--rose); transform: translateY(-5px); }
-        .manifesto-card h3 { font-family: 'Syne', sans-serif; color: var(--gold); margin-bottom: 10px; }
-        .manifesto-card p { font-size: 0.85rem; color: #777; }
-
-        /* --- El Archivo & Cierre --- */
-        .cta-box {
-            background: var(--white);
-            color: var(--black);
-            padding: 60px 40px;
-            border-radius: 50px;
-            text-align: center;
-        }
-
-        .cta-box h2 { font-family: 'Syne', sans-serif; margin-bottom: 20px; }
-
-        .btn-black {
-            display: inline-block;
-            background: var(--black);
-            color: var(--white);
-            padding: 18px 40px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-family: 'Syne', sans-serif;
-            font-weight: 800;
-            font-size: 0.8rem;
+            gap: 15px;
             margin-top: 20px;
         }
 
-        footer {
-            padding: 100px 20px;
-            text-align: center;
-            font-size: 0.6rem;
-            letter-spacing: 5px;
-            color: #444;
+        .info-card {
+            background: var(--gray);
+            border: 1px solid rgba(244, 208, 220, 0.1);
+            padding: 30px;
+            border-radius: 25px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .info-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-3px);
+            background: #151515;
+        }
+
+        .info-card h3 {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.1rem;
             text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-
-        /* Estilos de contenido interno */
-        .content-label { color: var(--gold); font-weight: 800; font-size: 0.7rem; text-transform: uppercase; display: block; margin-bottom: 5px; }
-        .in-out { display: flex; justify-content: space-between; margin-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; }
-        .in-out div { width: 45%; }
-        .in-out b { display: block; font-size: 0.7rem; margin-bottom: 5px; }
-        .in { color: var(--rose); }
-        .out { color: #555; }
-    </style>
-</head>
-<body>
-
-    <header>
-        <h1>M A R Y</h1>
-        <h1><span>2026</span></h1>
-        <p class="hero-subtitle">Strategic Digital Concierge</p>
-    </header>
-
-    <div class="container">
-        
-        <h2 class="section-title">Consola de Estilo</h2>
-        <div class="weather-grid">
-            <button class="weather-btn" onclick="updateWeather('frio', this)">Frío</button>
-            <button class="weather-btn" onclick="updateWeather('viento', this)">Viento</button>
-            <button class="weather-btn" onclick="updateWeather('lluvia', this)">Lluvia</button>
-            <button class="weather-btn" onclick="updateWeather('templado', this)">Templado</button>
-            <button class="weather-btn" onclick="updateWeather('calor', this)">Calor</button>
-            <button class="weather-btn" onclick="updateWeather('extremo', this)">Extremo</button>
-        </div>
-
-        <div id="weather-display">
-            <p style="text-align: center; color: #555; margin-top: 80px;">Seleccioná un clima para ver el protocolo de estilo.</p>
-        </div>
-
-        <h2 class="section-title">El Manifiesto</h2>
-        <div class="manifesto-grid">
-            <div class="manifesto-card">
-                <span class="content-label">01 / Estética</span>
-                <h3>Edit Visual</h3>
-                <p>Mob Wife, Noir Texturizado y Accesorios de Oro XL. El poder de la imagen 2026.</p>
-            </div>
-            <div class="manifesto-card">
-                <span class="content-label">02 / Beauty</span>
-                <h3>Lab de Belleza</h3>
-                <p>Glass Skin, Espresso Lips y Protocolos de Skin Cycling de alta gama.</p>
-            </div>
-            <div class="manifesto-card">
-                <span class="content-label">03 / Performance</span>
-                <h3>Alto Rendimiento</h3>
-                <p>Bio-hacking, Deep Work y Micro-rituales para una vida organizada al extremo.</p>
-            </div>
-            <div class="manifesto-card">
-                <span class="content-label">04 / Business</span>
-                <h3>Estrategia Digital</h3>
-                <p>Curaduría en GitHub, Gestión de Activos y Alianza Estratégica Profesional.</p>
-            </div>
-        </div>
-
-        <div class="cta-box">
-            <h2>¿Lista para elevar?</h2>
-            <p>Transformo tu caos operativo en una estructura de lujo.</p>
-            <a href="https://wa.me/5491100000000?text=Hola%20Mary,%20vi%20tu%20Manifiesto%202026%20y%20quiero%20elevar%20mi%20marca%20personal" class="btn-black">SOLICITAR ALIANZA</a>
-        </div>
-
-    </div>
-
-    <footer>
-        © 2026 MARY EXPERIENCE • BUENOS AIRES • GITHUB DEPLOYED
-    </footer>
-
-    <script>
-        const weatherData = {
-            frio: {
-                title: "Invernal Luxury",
-                outfit: "Tapado oversized negro, capas de cashmere y botas altas.",
-                makeup: "Labios Espresso y piel mate aterciopelada.",
-                tip: "El frío es la excusa para el oro XL por fuera del abrigo.",
-                in: "Tapados XL", out: "Telas finas"
-            },
-            viento: {
-                title: "Urban Protection",
-                outfit: "Blazers pesados, cuero sastrero y pantalones rectos.",
-                makeup: "Sleek bun (pelo tirante) y lentes rectangulares.",
-                tip: "Estructura sobre volumen para mantener la silueta.",
-                in: "Lentes dark", out: "Pelo suelto"
-            },
-            lluvia: {
-                title: "Waterproof Chic",
-                outfit: "Trench coat vinílico, paraguas de golf negro y suela track.",
-                makeup: "Piel Dewy y máscara waterproof absoluta.",
-                tip: "La humedad es tu aliada para un glow natural.",
-                in: "Texturas vinilo", out: "Gamuza"
-            },
-            templado: {
-                title: "Quiet Luxury",
-                outfit: "Camisa de seda, chaleco sastrero y mocasines finos.",
-                makeup: "Glass skin y cejas HD muy definidas.",
-                tip: "Es el momento del look 'Office Siren' puro.",
-                in: "Mocasines", out: "Capas pesadas"
-            },
-            calor: {
-                title: "Summer Minimalism",
-                outfit: "Vestidos lenceros, sandalias de tiras y lino tiza.",
-                makeup: "Bronceador sutil y protección solar iluminadora.",
-                tip: "Menos es más. Que tu accesorio sea tu peinado.",
-                in: "Seda y Lino", out: "Capas oscuras"
-            },
-            extremo: {
-                title: "Desert Elegance",
-                outfit: "Telas tiza ultra holgadas y sandalias minimalistas.",
-                makeup: "Cero base. Brumas hidratantes constantes.",
-                tip: "Pelo totalmente recogido para flujo de aire.",
-                in: "Blanco total", out: "Jean ajustado"
-            }
-        };
-
-        function updateWeather(type, btn) {
-            // Update buttons
-            document.querySelectorAll('.weather-btn').forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-
-            // Update content
-            const data = weatherData[type];
-            const display = document.getElementById('weather-display');
-            display.innerHTML = `
-                <span class="content-label">Código de Vestimenta</span>
-                <h2 style="font-family: 'Syne'; color: var(--rose); margin-bottom: 15px;">${data.title}</h2>
-                <p><b>Outfit:</b> ${data.outfit}</p>
-                <p><b>Makeup:</b> ${data.makeup}</p>
-                <p style="margin-top: 15px; font-style: italic; color: var(--gold); font-size: 0.9rem;">"${data.tip}"</p>
-                <div class="in-out">
-                    <div class="in"><b>IN</b> ${data.in}</div>
-                    <div class="out"><b>OUT</b> ${data.out}</div>
-                </div>
-            `;
-            display.style.animation = 'none';
-            display.offsetHeight; // trigger reflow
-            display.style.animation = 'fadeIn 0.5s ease';
+        .info-card .tag {
+            font-size: 0.6rem;
+            color: var(--gold);
+            border: 1px solid var(--gold);
+            padding: 4px 10px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            font-weight: 800;
         }
-    </script>
-</body>
-</html>
+
+        /* --- Modal de Lujo --- */
+        .modal {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.95);
+            backdrop-filter: blur(15px);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            padding:
+                
