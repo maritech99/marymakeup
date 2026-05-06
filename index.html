@@ -157,5 +157,198 @@
             justify-content: center;
             align-items: center;
             z-index: 1000;
-            padding:
-                
+            padding: 20px;
+        }
+
+        .modal-content {
+            background: #0c0c0c;
+            width: 100%;
+            max-width: 400px;
+            padding: 50px 30px;
+            border-radius: 35px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            position: relative;
+            animation: modalIn 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        @keyframes modalIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 25px; right: 25px;
+            color: var(--gold);
+            font-family: 'Syne', sans-serif;
+            font-size: 0.7rem;
+            cursor: pointer;
+            letter-spacing: 2px;
+        }
+
+        .modal-body h2 { font-family: 'Syne', sans-serif; color: var(--rose); margin-bottom: 25px; font-size: 1.5rem; text-transform: uppercase; }
+        .modal-body ul { list-style: none; }
+        .modal-body li { margin-bottom: 20px; }
+        .modal-body b { color: var(--gold); display: block; font-size: 0.65rem; text-transform: uppercase; margin-bottom: 5px; letter-spacing: 1px; }
+        .modal-body p { font-size: 0.95rem; color: #ccc; line-height: 1.4; }
+
+        /* --- Footer & Cierre --- */
+        .cta-section {
+            margin-top: 80px;
+            text-align: center;
+            padding-bottom: 100px;
+        }
+
+        .btn-gold {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--black);
+            padding: 20px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            transition: var(--transition);
+        }
+
+        .btn-gold:hover { transform: scale(1.05); box-shadow: 0 10px 30px rgba(212,175,55,0.3); }
+
+        footer {
+            font-size: 0.5rem;
+            letter-spacing: 4px;
+            color: #333;
+            text-transform: uppercase;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>M A R Y</h1>
+        <h1><span>2026</span></h1>
+        <p class="hero-subtitle">Lifestyle Architect</p>
+    </header>
+
+    <div class="container">
+        
+        <h2 class="section-title">Consola de Estilo</h2>
+        <div class="weather-grid">
+            <button class="weather-btn" onclick="updateWeather('frio', this)">Frío</button>
+            <button class="weather-btn" onclick="updateWeather('viento', this)">Viento</button>
+            <button class="weather-btn" onclick="updateWeather('lluvia', this)">Lluvia</button>
+            <button class="weather-btn" onclick="updateWeather('templado', this)">Templado</button>
+            <button class="weather-btn" onclick="updateWeather('calor', this)">Calor</button>
+            <button class="weather-btn" onclick="updateWeather('extremo', this)">Extremo</button>
+        </div>
+
+        <div id="weather-display">
+            <p style="text-align: center; color: #444; margin-top: 60px; font-size: 0.8rem; letter-spacing: 1px;">SISTEMA ACTIVO / SELECCIONÁ CLIMA</p>
+        </div>
+
+        <div class="info-stack">
+            <div class="info-card" onclick="openModal('visual')">
+                <h3>Visual Edit</h3>
+                <span class="tag">Tendencias</span>
+            </div>
+            <div class="info-card" onclick="openModal('beauty')">
+                <h3>Beauty Lab</h3>
+                <span class="tag">Protocolos</span>
+            </div>
+            <div class="info-card" onclick="openModal('performance')">
+                <h3>High Performance</h3>
+                <span class="tag">Bio-Hacking</span>
+            </div>
+            <div class="info-card" onclick="openModal('digital')">
+                <h3>Digital Strategy</h3>
+                <span class="tag">GitHub Ops</span>
+            </div>
+        </div>
+
+        <div class="cta-section">
+            <a href="https://wa.me/5491100000000?text=Hola%20Mary,%20solicito%20acceso%20a%20tu%20servicio%20de%20Concierge" class="btn-gold">Solicitar Alianza</a>
+            <footer>© 2026 Mary Experience • Villa Tesei</footer>
+        </div>
+    </div>
+
+    <div id="infoModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">[ CERRAR ]</span>
+            <div id="modalBody" class="modal-body"></div>
+        </div>
+    </div>
+
+    <script>
+        const weatherData = {
+            frio: { title: "Invernal Luxury", outfit: "Tapado oversized negro, capas de cashmere.", makeup: "Labios Espresso y piel aterciopelada.", tip: "El frío es la excusa para el oro XL." },
+            viento: { title: "Urban Protection", outfit: "Blazers pesados y cuero estructurado.", makeup: "Sleek bun y lentes rectangulares.", tip: "Estructura sobre volumen para el viento." },
+            lluvia: { title: "Waterproof Chic", outfit: "Trench coat vinílico y suelas track.", makeup: "Piel dewy y máscara waterproof.", tip: "La humedad es el accesorio, usala a tu favor." },
+            templado: { title: "Quiet Luxury", outfit: "Camisa de seda y chaleco sastrero.", makeup: "Glass skin y cejas HD.", tip: "Es el momento del Office Siren look." },
+            calor: { title: "Summer Minimalism", outfit: "Vestido lencero y lino tiza.", makeup: "Bronceador sutil y mucha protección.", tip: "Menos es más. Pelo recogido chic." },
+            extremo: { title: "Desert Elegance", outfit: "Telas tiza ultra holgadas y sandalias.", makeup: "Cero base. Brumas refrescantes.", tip: "Pelo totalmente retirado de la nuca." }
+        };
+
+        const details = {
+            visual: {
+                title: "Visual Edit",
+                list: [
+                    { b: "Estética Base", p: "Dark Minimal & Corporate Siren. El poder de lo monocromático." },
+                    { b: "Accesorios", p: "Oro 18k en piezas grandes. Menos piezas, más peso visual." },
+                    { b: "Filosofía", p: "La imagen es tu primera herramienta de negociación." }
+                ]
+            },
+            beauty: {
+                title: "Beauty Lab",
+                list: [
+                    { b: "Skincare", p: "Skin Cycling de 4 noches. Recuperación celular profunda." },
+                    { b: "Color", p: "Espresso Lips y laminado de cejas natural." },
+                    { b: "Cryo", p: "Uso de frío para esculpir el rostro antes de eventos." }
+                ]
+            },
+            performance: {
+                title: "Bio-Hacking",
+                list: [
+                    { b: "Productividad", p: "Deep Work en bloques de 90 min sin interrupciones." },
+                    { b: "Energía", p: "Luz natural AM y suplementación de Magnesio." },
+                    { b: "Ritual", p: "Digital Detox programado para resetear dopamina." }
+                ]
+            },
+            digital: {
+                title: "Digital Ops",
+                list: [
+                    { b: "Infraestructura", p: "Gestión de activos premium mediante GitHub." },
+                    { b: "Etiqueta", p: "Comunicación asincrónica de alto nivel y privacidad." },
+                    { b: "Valor", p: "Tu orden técnico es lo que atrae a clientes de élite." }
+                ]
+            }
+        };
+
+        function updateWeather(type, btn) {
+            document.querySelectorAll('.weather-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            const d = weatherData[type];
+            document.getElementById('weather-display').innerHTML = `
+                <h3 style="font-family:'Syne';color:var(--rose);margin-bottom:12px;font-size:1.3rem;">${d.title}</h3>
+                <p style="margin-bottom:8px;font-size:0.9rem;"><b>Vestuario:</b> ${d.outfit}</p>
+                <p style="margin-bottom:8px;font-size:0.9rem;"><b>Makeup:</b> ${d.makeup}</p>
+                <p style="margin-top:15px;color:var(--gold);font-style:italic;font-size:0.85rem;">"${d.tip}"</p>
+            `;
+        }
+
+        function openModal(id) {
+            const data = details[id];
+            let html = `<h2>${data.title}</h2><ul>`;
+            data.list.forEach(item => {
+                html += `<li><b>${item.b}</b><p>${item.p}</p></li>`;
+            });
+            html += `</ul>`;
+            document.getElementById('modalBody').innerHTML = html;
+            document.getElementById('infoModal').style.display = 'flex';
+        }
+
+        function closeModal() { document.getElementById('infoModal').style.display = 'none'; }
+    </script>
+</body>
+</html>
